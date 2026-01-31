@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP // 39C3 POWER CYCLES</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+        @font-face {
+            font-family: 'KarioDuplexVar';
+            src: url('fonts/Kario39C3VarWEB-Roman.woff2') format('woff2'),
+                 url('fonts/Kario39C3VarWEB-Roman.woff') format('woff');
+        }
+
+        :root {
+            --black: #000;
+            --white: #fff;
+            --gray: #8a8a8a;
+            --hairline: 1px;
+        }
+
+        * {
+            box-sizing: border-box;
+            cursor: crosshair;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .wrapper {
+            max-width: 900px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-left: var(--hairline) solid var(--white);
+            border-top: var(--hairline) solid var(--white);
+        }
+
+        .cell {
+            border-right: var(--hairline) solid var(--white);
+            border-bottom: var(--hairline) solid var(--white);
+            padding: 1.6rem;
+        }
+
+        .span-4 { grid-column: span 4; }
+        .span-2 { grid-column: span 2; }
+
+        h1 {
+            font-family: 'KarioDuplexVar', 'Inter', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.8;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0 1rem 0;
+            letter-spacing: 0.12em;
+        }
+
+        p, label {
+            font-size: 0.75rem;
+            line-height: 1.5;
+            letter-spacing: 0.08em;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            background: #111;
+            color: var(--white);
+            border: 1px solid var(--white);
+            padding: 0.6rem;
+            margin-top: 0.3rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        textarea { resize: vertical; }
+
+        .option-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        .option-group label {
+            border: 1px solid var(--white);
+            padding: 0.4rem 0.6rem;
+            font-size: 0.65rem;
+            cursor: pointer;
+        }
+
+        .option-group input {
+            margin-right: 0.3rem;
+        }
+
+        .btn {
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            width: 100%;
+            padding: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.18em;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--black);
+            color: var(--white);
+            border: 1px solid var(--white);
+        }
+
+        .hint {
+            font-size: 0.6rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+
+        .confirmation {
+            display: none;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper { grid-template-columns: repeat(2, 1fr); }
+            .span-4, .span-2 { grid-column: span 2; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- HEADER -->
+    <div class="cell span-4">
+        <h1>RSVP</h1>
+        <p>// DIES IST EINE FORMALITÄT // ODER AUCH NICHT</p>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="cell span-4">
+        <h2><span>// VORAB</span><span>[00]</span></h2>
+        <p>
+            Diese Anmeldung dient ausschließlich der Unterhaltung.<br>
+            Niemand plant ernsthaft. Niemand wertet das aus. Niemand zählt mit.
+        </p>
+        <p class="hint">
+            TL;DR: Komm einfach vorbei, wenn du Zeit & Lust hast.
+        </p>
+    </div>
+
+    <!-- FORM -->
+    <form id="rsvp-form" class="span-4" style="display: contents;">
+
+        <div class="cell span-2">
+            <label>Dein Name (oder Nickname)</label>
+            <input placeholder="z.B. root, alex, ich-bin-nur-wegen-der-snacks">
+        </div>
+
+        <div class="cell span-2">
+            <label>Bist du eher…</label>
+            <select>
+                <option>Nerd</option>
+                <option>Non‑Nerd</option>
+                <option>Ich tu nur so</option>
+                <option>Ich wurde mitgeschleppt</option>
+            </select>
+        </div>
+
+        <div class="cell span-2">
+            <label>Wann könntest du theoretisch auftauchen?</label>
+            <div class="option-group">
+                <label><input type="checkbox"> Vormittag</label>
+                <label><input type="checkbox"> Nachmittag</label>
+                <label><input type="checkbox"> Abend</label>
+                <label><input type="checkbox"> Spontan</label>
+            </div>
+        </div>
+
+        <div class="cell span-2">
+            <label>Wie viele Menschen bringst du evtl. mit?</label>
+            <select>
+                <option>0 (nur ich)</option>
+                <option>1</option>
+                <option>2</option>
+                <option>Mehr als sinnvoll</option>
+            </select>
+        </div>
+
+        <div class="cell span-2">
+            <label>Was interessiert dich mehr?</label>
+            <div class="option-group">
+                <label><input type="checkbox"> Talks</label>
+                <label><input type="checkbox"> Leute</label>
+                <label><input type="checkbox"> Essen</label>
+                <label><input type="checkbox"> Alles gleichzeitig</label>
+            </div>
+        </div>
+
+        <div class="cell span-2">
+            <label>Falls du kein Nerd bist:</label>
+            <select>
+                <option>Ich komme trotzdem klar</option>
+                <option>Ich stelle Fragen</option>
+                <option>Ich nicke einfach</option>
+                <option>Ich bleibe bei den Snacks</option>
+            </select>
+        </div>
+
+        <div class="cell span-4">
+            <label>Letzte Worte / Wünsche / Warnungen</label>
+            <textarea rows="3" placeholder="z.B. Bringe Kuchen mit / Habe Angst vor Fachbegriffen / Alles gut"></textarea>
+            <p class="hint">
+                Diese Nachricht wird garantiert niemand lesen.
+            </p>
+        </div>
+
+        <div class="cell span-4" style="padding:0;">
+            <button class="btn" type="submit">ANMELDUNG ABSCHICKEN</button>
+        </div>
+    </form>
+
+    <!-- CONFIRMATION -->
+    <div class="cell span-4 confirmation" id="confirmation">
+        <h2>// ERFOLG</h2>
+        <p>
+            Vielen Dank für deine Anmeldung.<br><br>
+            Gute Nachrichten:<br>
+            <strong>Niemand erhält diese Anmeldung.</strong><br><br>
+            Es gibt keine Gästeliste.<br>
+            Kein Tracking. Kein Abgleich. Kein Einlasskontrolle‑Script.
+        </p>
+        <p style="margin-top:1rem;">
+            Komm einfach vorbei, wann immer du möchtest.<br>
+            Oder auch nicht. Alles ist okay.
+        </p>
+    </div>
+
+</div>
+
+<script>
+document.getElementById('rsvp-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('rsvp-form').style.display = 'none';
+    document.getElementById('confirmation').style.display = 'block';
+});
+</script>
+
+</body>
+</html>
