@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,8 @@
         @font-face {
             font-family: 'KarioDuplexVar';
             src: url('fonts/Kario39C3VarWEB-Roman.woff2') format('woff2'),
-                 url('fonts/Kario39C3VarWEB-Roman.woff') format('woff'),
-                 url('fonts/Kario39C3Var-Roman.ttf') format('truetype');
+                url('fonts/Kario39C3VarWEB-Roman.woff') format('woff'),
+                url('fonts/Kario39C3Var-Roman.ttf') format('truetype');
         }
 
         :root {
@@ -157,8 +158,13 @@
         }
 
         /* --- UTILS --- */
-        .span-2 { grid-column: span 2; }
-        .span-4 { grid-column: span 4; }
+        .span-2 {
+            grid-column: span 2;
+        }
+
+        .span-4 {
+            grid-column: span 4;
+        }
 
         .inverted {
             background-color: var(--white);
@@ -166,99 +172,116 @@
         }
 
         @media (max-width: 768px) {
-            .wrapper { grid-template-columns: repeat(2, 1fr); }
-            .header-main { grid-column: span 2; }
-            .span-2, .span-4 { grid-column: span 2; }
-        }
-        
-        .logo {
-          width: 100%;
-          height: 100%; 
-          background-image: url("images/logo-127-home.png");
-          background-repeat: no-repeat;
-          background-size: 225%;
-          background-position: center;
-
-          pointer-events: none;
-          z-index: 5;
-      }
-      .cell.power-symbol-cell{
-            background-color: var(--black);
+            .wrapper {
+                grid-template-columns: repeat(2, 1fr);
             }
-        
 
+            .header-main {
+                grid-column: span 2;
+            }
+
+            .span-2,
+            .span-4 {
+                grid-column: span 2;
+            }
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            background-image: url("images/logo-127-home.png");
+            background-repeat: no-repeat;
+            background-size: 225%;
+            background-position: center;
+
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .cell.power-symbol-cell {
+            background-color: var(--black);
+        }
+
+        @media (max-width: 768px) {
+            .cell.power-symbol-cell {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+    <div class="wrapper">
 
-    <div class="cell header-main">
-        <h1 class="logo-39c3">39C3</h1>
-        <p>// POWER CYCLES</p>
-    </div>
-
-    <div class="cell power-symbol-cell">
-        <div class="logo"></div>
-    </div>
-
-    <div class="cell span-2">
-        <span class="label">01_EVENT_NAME</span>
-        <div class="big-text">RECAP & HOUSEWARMING</div>
-    </div>
-
-    <div class="cell">
-        <span class="label">02_STATUS</span>
-        <div class="big-text">ON</div>
-    </div>
-
-    <div class="cell">
-        <span class="label">03_YEAR</span>
-        <div class="big-text">2026</div>
-    </div>
-
-    <div class="cell span-2">
-        <h2><span>// MISSION</span><span>[04]</span></h2>
-        <p>Einweihung der neuen Homebase. Gemeinsames Sichten der verpassten 39C3-Vorträge. Austausch von Bits, Meinungen und Mate.</p>
-    </div>
-
-    <div class="cell span-2">
-        <h2><span>// LOCATION</span><span>[05]</span></h2>
-        <p>Adresse via DM</p>
-        <p>28. FEB 2026</p>
-    </div>
-
-    <div class="cell span-4">
-        <h2><span>// FAHRPLAN</span><span>[06]</span></h2>
-        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
-            <div><span class="tag">OFF</span>11:00 – Breakfast</div>
-            <div><span class="tag">REC</span>20:30 – Security Nightmares</div>
-            <div><span class="tag">OFF</span>22:00 – Late Night Drink</div>
+        <div class="cell header-main">
+            <h1 class="logo-39c3">39C3</h1>
+            <p>// POWER CYCLES</p>
         </div>
-    </div>
 
-    <div class="cell span-2" style="padding:0;">
-        <a href="#" class="btn">RSVP / ANMELDEN</a>
-    </div>
-
-    <div class="cell span-2 inverted">
-        <span class="label" style="color:#000">07_MOTTO</span>
-        <div style="font-weight:900; letter-spacing:0.12em;">
-            BE EXCELLENT TO EACH OTHER.
+        <div class="cell power-symbol-cell">
+            <div class="logo"></div>
         </div>
+
+        <div class="cell span-2">
+            <span class="label">01_EVENT_NAME</span>
+            <div class="big-text">RECAP & HOUSEWARMING</div>
+        </div>
+
+        <div class="cell">
+            <span class="label">02_STATUS</span>
+            <div class="big-text">ON</div>
+        </div>
+
+        <div class="cell">
+            <span class="label">03_YEAR</span>
+            <div class="big-text">2026</div>
+        </div>
+
+        <div class="cell span-2">
+            <h2><span>// MISSION</span><span>[04]</span></h2>
+            <p>Einweihung der neuen Homebase. Gemeinsames Sichten der verpassten 39C3-Vorträge. Austausch von Bits,
+                Meinungen und Mate.</p>
+        </div>
+
+        <div class="cell span-2">
+            <h2><span>// LOCATION</span><span>[05]</span></h2>
+            <p>Adresse via DM</p>
+            <p>28. FEB 2026</p>
+        </div>
+
+        <div class="cell span-4">
+            <h2><span>// FAHRPLAN</span><span>[06]</span></h2>
+            <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+                <div><span class="tag">OFF</span>11:00 – Breakfast</div>
+                <div><span class="tag">REC</span>20:30 – Security Nightmares</div>
+                <div><span class="tag">OFF</span>22:00 – Late Night Drink</div>
+            </div>
+        </div>
+
+        <div class="cell span-2" style="padding:0;">
+            <a href="#" class="btn">RSVP / ANMELDEN</a>
+        </div>
+
+        <div class="cell span-2 inverted">
+            <span class="label" style="color:#000">07_MOTTO</span>
+            <div style="font-weight:900; letter-spacing:0.12em;">
+                BE EXCELLENT TO EACH OTHER.
+            </div>
+        </div>
+        <div class="cell span-4">
+            <h2><span>// WISSENSWERTES </span><span>[08]</span></h2>
+            <p>Kommt einfach vorbei wann und wie es euch passt. Ob für ein Getränk, einen Talk oder den ganzen Marathon
+                - <br>ganz wie ihr mögt, wir freuen uns auf euch!</p><br>
+            <p>Das Leibliche Wohl: Zum Frühstück gibt es Porridge (und ggf. Brot?), mittags/abends Chilli.</p>
+        </div>
+        <div class="cell span-4" style="font-size:0.6rem; color:var(--gray); text-align:justify;">
+            POWER_CYCLE_INIT: COMPLETED // 39C3_STYLE_GUIDE_V01 // NICHTS IST JEMALS FERTIG //
+            FEHLENDE LAMPEN NICHT ERWÄHNEN // 127.0.0.1 // END OF LINE
+        </div>
+
     </div>
-    <div class="cell span-4">
-        <h2><span>// WISSENSWERTES </span><span>[08]</span></h2>
-        <p>Kommt einfach vorbei wann und wie es euch passt. Ob für ein Getränk, einen Talk oder den ganzen Marathon - <br>ganz wie ihr mögt, wir freuen uns auf euch!</p><br>
-        <p>Das Leibliche Wohl: Zum Frühstück gibt es Porridge (und ggf. Brot?), mittags/abends Chilli.</p>
-    </div>
-    <div class="cell span-4" style="font-size:0.6rem; color:var(--gray); text-align:justify;">
-        POWER_CYCLE_INIT: COMPLETED // 39C3_STYLE_GUIDE_V01 // NICHTS IST JEMALS FERTIG //
-        FEHLENDE LAMPEN NICHT ERWÄHNEN // 127.0.0.1 // END OF LINE
-    </div>
-    
-</div>
 
 </body>
+
 </html>
